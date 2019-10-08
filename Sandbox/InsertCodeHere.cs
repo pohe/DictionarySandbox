@@ -14,6 +14,37 @@ namespace Sandbox
             Car c3 = new Car("TD 55555", 250, "BMW");
             Car c4 = new Car("AZ 12345678", 280, "Peugout");
 
+            c4.Stand = Vedligehold.God;
+            Console.WriteLine($"Tilstanden af bilen AZ 12345678 er {c4.Stand}");
+
+            Car c6 = new Car("99999", Vedligehold.MegetGod, 400, "Mercedes");
+
+            Console.WriteLine("Skriv tilstanden af C3");
+            string standenAfC3 = Console.ReadLine();
+            if (standenAfC3 == "God")
+            { 
+                c3.Stand = Vedligehold.God;
+            }
+            else if (standenAfC3 == "Dårlig")
+            {
+                c3.Stand = Vedligehold.Dårlig;
+            }
+            Console.WriteLine("Standen af C3 er " + c3.Stand);
+
+            switch (c3.Stand)
+            {
+                case Vedligehold.God: Console.WriteLine("Good");
+                break;
+                case Vedligehold.Dårlig: Console.WriteLine("Bad");
+                    break;
+                case Vedligehold.MegetGod: Console.WriteLine("Very good");
+                    break;
+                default: Console.WriteLine("Ikke registreret");
+                    break;
+            }
+
+
+            Car c7 = new Car("2323232", Vedligehold.MegetGod, Type.StationCar, 300, "Volvo");
             Dictionary<string, Car>cars = new Dictionary<string, Car>();
             //cars.Add("AV 12345678", c1);
             cars.Add(c1.Regnr, c1);
